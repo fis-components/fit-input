@@ -138,9 +138,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var childs = _react2.default.createElement('input', { value: this.props.value || null, className: 'form-control input',
-	                onFocus: this.handleFocus.bind(this), onBlur: this.handleBlur.bind(this),
-	                onChange: this.handleChange.bind(this) });
+	            var textStyle = {};
+	            if (this.props.width) {
+	                textStyle.width = this.props.width;
+	            } else {
+	                textStyle.flexGrow = 1;
+	            }
+
+	            var childs = _react2.default.createElement('input', { type: 'text',
+	                value: this.props.value || null,
+	                className: 'form-control input',
+	                onFocus: this.handleFocus.bind(this),
+	                onBlur: this.handleBlur.bind(this),
+	                onChange: this.handleChange.bind(this),
+	                disabled: this.props.disabled,
+	                style: textStyle });
 
 	            if (!_lodash2.default.isEmpty(this.props.label)) {
 	                childs = _react2.default.createElement(
@@ -152,9 +164,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                            className: 'form-control-label' },
 	                        this.props.label
 	                    ),
-	                    _react2.default.createElement('input', { className: 'form-control input', value: this.props.value || null,
-	                        onChange: this.handleChange.bind(this), onFocus: this.handleFocus.bind(this),
-	                        onBlur: this.handleBlur.bind(this) })
+	                    childs
 	                );
 	            }
 
@@ -173,11 +183,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                                { className: 'input-group-addon' },
 	                                this.props.addonLeft
 	                            ),
-	                            _react2.default.createElement('input', { type: 'text',
-	                                value: this.props.value || null,
-	                                onChange: this.handleChange.bind(this),
-	                                onFocus: this.handleFocus.bind(this), onBlur: this.handleBlur.bind(this),
-	                                className: 'form-control input' }),
+	                            childs,
 	                            _lodash2.default.isEmpty(this.props.addonRight) ? null : _react2.default.createElement(
 	                                'div',
 	                                { className: 'input-group-addon' },
@@ -206,7 +212,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	    style: {},
 	    onChange: function onChange() {},
 	    onFocus: function onFocus() {},
-	    onBlur: function onBlur() {}
+	    onBlur: function onBlur() {},
+	    disabled: false,
+	    width: null
 	};
 
 /***/ },
@@ -262,7 +270,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, ".lib-pc-input-src-input .form-control {\n  padding: .4rem .75rem;\n  border-color: #cfdadd; }\n\n.lib-pc-input-src-input .input {\n  -webkit-transition: border linear .2s, box-shadow linear .2s;\n  transition: border linear .2s, box-shadow linear .2s;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  border-radius: 0; }\n  .lib-pc-input-src-input .input:focus {\n    border: 1px solid #66afe9;\n    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6); }\n\n.lib-pc-input-src-input .input-group-addon {\n  border-color: #cfdadd; }\n\n.lib-pc-input-src-input .form-container {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: row;\n      -ms-flex-direction: row;\n          flex-direction: row; }\n  .lib-pc-input-src-input .form-container label {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n        -ms-flex-align: center;\n            align-items: center;\n    white-space: nowrap; }\n\n.lib-pc-input-src-input .form-inline {\n  width: 100%; }\n  .lib-pc-input-src-input .form-inline .form-group {\n    width: 100%; }\n  .lib-pc-input-src-input .form-inline .input-group {\n    width: 100%; }\n", ""]);
+	exports.push([module.id, ".lib-pc-input-src-input {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex; }\n\n.lib-pc-input-src-input .form-control {\n  padding: .4rem .75rem;\n  border-color: #cfdadd; }\n\n.lib-pc-input-src-input .input {\n  -webkit-transition: border linear .2s, box-shadow linear .2s;\n  transition: border linear .2s, box-shadow linear .2s;\n  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);\n  border-radius: 0; }\n  .lib-pc-input-src-input .input:focus {\n    border: 1px solid #66afe9;\n    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(82, 168, 236, 0.6); }\n\n.lib-pc-input-src-input .input-group-addon {\n  border-color: #cfdadd; }\n\n.lib-pc-input-src-input .form-container {\n  display: -webkit-box;\n  display: -webkit-flex;\n  display: -ms-flexbox;\n  display: flex;\n  -webkit-box-orient: horizontal;\n  -webkit-box-direction: normal;\n  -webkit-flex-direction: row;\n      -ms-flex-direction: row;\n          flex-direction: row; }\n  .lib-pc-input-src-input .form-container label {\n    display: -webkit-box;\n    display: -webkit-flex;\n    display: -ms-flexbox;\n    display: flex;\n    -webkit-box-align: center;\n    -webkit-align-items: center;\n        -ms-flex-align: center;\n            align-items: center;\n    white-space: nowrap; }\n\n.lib-pc-input-src-input .form-inline {\n  width: 100%; }\n  .lib-pc-input-src-input .form-inline .form-group {\n    width: 100%; }\n  .lib-pc-input-src-input .form-inline .input-group {\n    width: 100%; }\n", ""]);
 
 	// exports
 
