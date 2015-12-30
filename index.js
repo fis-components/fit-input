@@ -117,10 +117,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	    function Checkbox(props) {
 	        _classCallCheck(this, Checkbox);
 
-	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Checkbox).call(this, props));
-
-	        _this.state = {};
-	        return _this;
+	        return _possibleConstructorReturn(this, Object.getPrototypeOf(Checkbox).call(this, props));
 	    }
 
 	    _createClass(Checkbox, [{
@@ -129,9 +126,21 @@ return /******/ (function(modules) { // webpackBootstrap
 	            this.props.onChange(event.target.value);
 	        }
 	    }, {
+	        key: 'handleFocus',
+	        value: function handleFocus() {
+	            this.props.onFocus();
+	        }
+	    }, {
+	        key: 'handleBlur',
+	        value: function handleBlur() {
+	            this.props.onBlur();
+	        }
+	    }, {
 	        key: 'render',
 	        value: function render() {
-	            var childs = _react2.default.createElement('input', { value: this.props.value || null, className: 'form-control input', onChange: this.handleChange.bind(this) });
+	            var childs = _react2.default.createElement('input', { value: this.props.value || null, className: 'form-control input',
+	                onFocus: this.handleFocus.bind(this), onBlur: this.handleBlur.bind(this),
+	                onChange: this.handleChange.bind(this) });
 
 	            if (!_lodash2.default.isEmpty(this.props.label)) {
 	                childs = _react2.default.createElement(
@@ -144,7 +153,8 @@ return /******/ (function(modules) { // webpackBootstrap
 	                        this.props.label
 	                    ),
 	                    _react2.default.createElement('input', { className: 'form-control input', value: this.props.value || null,
-	                        onChange: this.handleChange.bind(this) })
+	                        onChange: this.handleChange.bind(this), onFocus: this.handleFocus.bind(this),
+	                        onBlur: this.handleBlur.bind(this) })
 	                );
 	            }
 
@@ -166,6 +176,7 @@ return /******/ (function(modules) { // webpackBootstrap
 	                            _react2.default.createElement('input', { type: 'text',
 	                                value: this.props.value || null,
 	                                onChange: this.handleChange.bind(this),
+	                                onFocus: this.handleFocus.bind(this), onBlur: this.handleBlur.bind(this),
 	                                className: 'form-control input' }),
 	                            _lodash2.default.isEmpty(this.props.addonRight) ? null : _react2.default.createElement(
 	                                'div',
@@ -193,7 +204,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	Checkbox.defaultProps = {
 	    style: {},
-	    onChange: function onChange() {}
+	    onChange: function onChange() {},
+	    onFocus: function onFocus() {},
+	    onBlur: function onBlur() {}
 	};
 
 /***/ },
