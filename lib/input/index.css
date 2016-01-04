@@ -2,7 +2,8 @@
   display: -webkit-box;
   display: -webkit-flex;
   display: -ms-flexbox;
-  display: flex; }
+  display: flex;
+  position: relative; }
 
 .lib-pc-input-lib-input .form-control {
   padding: .4rem .75rem;
@@ -19,6 +20,12 @@
 
 .lib-pc-input-lib-input .input-group-addon {
   border-color: #cfdadd; }
+
+.lib-pc-input-lib-input .icon {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 4; }
 
 .lib-pc-input-lib-input .form-container {
   display: -webkit-box;
@@ -42,8 +49,18 @@
     white-space: nowrap; }
 
 .lib-pc-input-lib-input .form-inline {
-  width: 100%; }
+  width: auto; }
   .lib-pc-input-lib-input .form-inline .form-group {
     width: 100%; }
   .lib-pc-input-lib-input .form-inline .input-group {
     width: 100%; }
+
+.lib-pc-input-lib-input .flex-textarea {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  resize: none;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  display: none; }
