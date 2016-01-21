@@ -1,7 +1,7 @@
 {
     "name": "fit-input",
     "description": "输入框",
-    "repos": "https://github.com/2betop/placeholder.git",
+    "repos": "https://github.com/tb-component/pc-input.git",
     "main": "lib/index.js",
     "tag": "master",
     "reposType": "npm",
@@ -12,5 +12,5 @@
         "lodash": "^3.10.1",
         "react": "^0.14.3"
     },
-    "version": "1.1.15"
+    "version": "1.1.16"
 }
